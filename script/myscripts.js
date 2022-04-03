@@ -2,9 +2,10 @@ $(document).ready(function(){
     $('#select_tradeitem').empty();
     console.log('html');
     $.getJSON('script/data.json', function(data){
-        $.each(data, function(i, tradeitem){
-            console.log(tradeitem);
-            component_sentence = '<option>'+tradeitem.tradeitem_name+'</option>';
+        $.each(data, function(key, value){
+            console.log('key=' + key);
+            console.log('value=' + value);
+            component_sentence = '<option>'+value.tradeitem_name.value+'</option>';
             $('#select_tradeitem').append(component_sentence);
           });
     })
