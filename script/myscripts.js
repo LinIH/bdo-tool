@@ -27,6 +27,10 @@ $(document).ready(function(){
 $('button#add-item').click(function(){
     var option = $('#select_tradeitem option:selected');
     var option_val = option.val();
+    var option_val;
+    $.getJSON('script/data.json', function(data){
+        option_val = data[option_va][0].tradeitem_price;
+    })
     var newdiv =
     '<div class="ui fluid card '+option_val+'">'+
         '<div style="margin:5px;">'+
