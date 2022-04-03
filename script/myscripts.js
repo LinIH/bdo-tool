@@ -4,8 +4,7 @@ $(document).ready(function(){
     $.getJSON('script/data.json', function(data){
         $.each(data, function(key, value){
             console.log('key=' + key);
-            console.log('value=' + value);
-            component_sentence = '<option>'+value.tradeitem_name.value+'</option>';
+            component_sentence = '<option>'+value[0]+'</option>';
             $('#select_tradeitem').append(component_sentence);
           });
     })
