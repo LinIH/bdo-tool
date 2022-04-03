@@ -3,7 +3,7 @@ $(document).ready(function(){
     console.log('html');
     $.getJSON('script/data.json', function(data){
         $.each(data, function(key, value){
-            //console.log('key=' + key);
+            console.log('key=' + key);
             component_sentence = '<option id="'+key+'</option>';
             $('#select_tradeitem').append(component_sentence);
           });
