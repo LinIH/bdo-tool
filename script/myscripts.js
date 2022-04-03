@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    $.ajaxSetup({
+        async: false;
+    });
     $('#select_tradeitem').empty();
     console.log('html');
     $.getJSON('script/data.json', function(data){
@@ -30,7 +33,7 @@ $('button#add-item').click(function(){
     var option_price;
     $.getJSON('script/data.json', function(data){
         option_price = data[option_val][0].tradeitem_price;
-    })
+    }); 
     console.log(option_price);
     var newdiv =
     '<div class="ui fluid card '+option_val+'">'+
