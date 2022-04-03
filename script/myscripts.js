@@ -1,7 +1,11 @@
 $(document).ready(function(){
+    $('#select_tradeitem').empty();
+    console.log('html');
     $.getJSON('script/data.json', function(data){
-        $.each(data, function(i, field){
-            console.log(field);
+        $.each(data, function(i, tradeitem){
+            console.log(tradeitem);
+            component_sentence = '<option>'+tradeitem.tradeitem_name+'</option>';
+            $('#select_tradeitem').append(component_sentence);
           });
     })
 });
@@ -29,15 +33,4 @@ $('button.remove').click(function(){
 
 $("button#calculate").click(function(){
 
-});
-
-$('#select_tradeitem').html(function(){
-    $('#select_tradeitem').empty();
-    $.getJSON('script/data.json', function(data){
-        $.each(data, function(i, tradeitem){
-            console.log(tradeitem);
-            component_sentence = '<option>'+tradeitem.tradeitem_name+'</option>';
-            $('#select_tradeitem').append(component_sentence);
-          });
-    })
 });
