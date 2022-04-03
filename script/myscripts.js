@@ -3,8 +3,8 @@ $(document).ready(function(){
     console.log('html');
     $.getJSON('script/data.json', function(data){
         $.each(data, function(key, value){
-            console.log('key=' + key);
-            console.log('value.tradeitem_name=' + value[0].tradeitem_name);
+            //console.log('key=' + key);
+            //console.log('value.tradeitem_name=' + value[0].tradeitem_name);
             component_sentence = '<option>'+value[0].tradeitem_name+'</option>';
             $('#select_tradeitem').append(component_sentence);
           });
@@ -29,7 +29,7 @@ $('button#add-item').click(function(){
     var option_val = option.val();
     var option_val;
     $.getJSON('script/data.json', function(data){
-        option_val = data[option_va][0].tradeitem_price;
+        option_val = data[option_val][0].tradeitem_price;
     })
     var newdiv =
     '<div class="ui fluid card '+option_val+'">'+
