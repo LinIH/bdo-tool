@@ -1,4 +1,10 @@
-
+$(document).ready(function(){
+    $.getJSON('script/data.json', function(data){
+        $.each(data, function(i, field){
+            console.log(field);
+          });
+    }) 
+});
 
 $('button#add-item').click(function(){
     var option = $('#select_tradeitem option:selected');
