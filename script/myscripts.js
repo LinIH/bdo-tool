@@ -43,7 +43,7 @@ $('button#add-item').click(function(){
         '<tr>'+
             '<td>' + option_val + '</td>' +                                                       //貿易品
             '<td>' + option_price + '</td>' +                                                    //單價
-            '<td><input type="number" class="trade_count">' + '</td>' +                          //數量
+            '<td><input type="number" style="width:auto" min="10" class="trade_count">' + '</td>' +                          //數量
             '<td>' + '</td>' +                                                            //產地
             '<td>' + '</td>' +                                                           //距離加成
             '<td class="trade_subtotal">' + subtotal + '</td>' +                          //小計
@@ -53,6 +53,11 @@ $('button#add-item').click(function(){
         $('button.remove').click(function(){
             $(this).parent().parent().remove();
         });
+        $('.trade_count').bind('input', 'input', function(){
+            var trade_count = $(this).val();
+            subtotal = option_price * $(this).val();
+            $(this).parent().parent().trade_subtotal.text(subtotal);
+        })
         
     });
 
