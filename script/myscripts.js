@@ -41,7 +41,7 @@ $('button#add-item').click(function(){
         var subtotal = option_price;
         var newdiv =
         '<tr>'+
-            '<td><button class="mini ui button remove">x</button>' +
+            '<td><button class="mini ui button remove" style="width:100%">x</button>' +
             '<td>' + option_val + '</td>' +                                                       //貿易品
             '<td>' + option_price + '</td>' +                                                    //單價
             '<td><input type="number" style="width:100%" value="1" min="0" class="trade_count">' + '</td>' +                          //數量
