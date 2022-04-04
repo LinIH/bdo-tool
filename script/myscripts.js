@@ -24,13 +24,24 @@ $(document).ready(function(){
     return objects;
 }*/
 
+
 $('button#add-item').click(function(){
     var option = $('#select_tradeitem option:selected');
     var option_val = option.val();
     var option_price;
-    $.getJSON('script/data.json', function(data){
+    /*$.getJSON('script/data.json', function(data){
         option_price = data[option_val][0].tradeitem_price;
-    }); 
+    }); */
+
+    var getprice_id = setInterval(function(){
+        $.getJSON('script/data.json', function(data){
+            option_price = data[option_val][0].tradeitem_price;
+        });
+        if(option_price != null){
+            clearInterval(getprice_id);
+        }
+    }, 500);
+
     console.log(option_price);
     var newdiv =
     '<div class="ui fluid card '+option_val+'">'+
