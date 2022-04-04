@@ -24,38 +24,35 @@ $(document).ready(function(){
     return objects;
 }*/
 
-
 $('button#add-item').click(function(){
     var option = $('#select_tradeitem option:selected');
     var option_val = option.val();
     var option_price;
-    /*$.getJSON('script/data.json', function(data){
+    $.getJSON('script/data.json', function(data){
         option_price = data[option_val][0].tradeitem_price;
-    }); */
+        var newdiv =
+        '<div class="ui fluid card '+option_val+'">'+
+            '<div style="margin:5px;">'+
+                option_val+
+                '<button id="'+option_val+'" class="mini ui button remove" style="float:right;">刪</button>'+
+                '<div>'+ option_price +'</div>'
+            '</div>'+
+        '</div>';
 
-    var getprice_id = setInterval(function(){
+        $("#content").append(newdiv);
+        $('button.remove').click(function(){
+            $(this).parent().parent().remove();
+        });
+    });
+
+    /*var getprice_id = setInterval(function(){
         $.getJSON('script/data.json', function(data){
             option_price = data[option_val][0].tradeitem_price;
         });
         if(option_price != null){
             clearInterval(getprice_id);
         }
-    }, 500);
-
-    console.log(option_price);
-    var newdiv =
-    '<div class="ui fluid card '+option_val+'">'+
-        '<div style="margin:5px;">'+
-            option_val+
-            '<button id="'+option_val+'" class="mini ui button remove" style="float:right;">刪</button>'+
-            '<div>'+ option_price +'</div>'
-        '</div>'+
-    '</div>';
-
-    $("#content").append(newdiv);
-    $('button.remove').click(function(){
-        $(this).parent().parent().remove();
-    });
+    }, 500);*/
 });
 
 $('button.remove').click(function(){
