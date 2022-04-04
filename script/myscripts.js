@@ -38,20 +38,22 @@ $('button#add-item').click(function(){
                 
             '</div>'+
         '</div>';*/
+        var subtotal = option_price;
         var newdiv =
         '<tr>'+
-            '<td>' + option_val + '</td>' +             //貿易品
-            '<td>' + option_price + '</td>' +           //單價
-            '<td><input type="number">' + '</td>' +                          //數量
-            '<td>' + '</td>' +                          //產地
-            '<td>' + '</td>' +                          //距離加成
-            '<td>' + '</td>' +                          //小計
+            '<td>' + option_val + '</td>' +                                                       //貿易品
+            '<td>' + option_price + '</td>' +                                                    //單價
+            '<td><input type="number" class="trade_count">' + '</td>' +                          //數量
+            '<td>' + '</td>' +                                                            //產地
+            '<td>' + '</td>' +                                                           //距離加成
+            '<td class="trade_subtotal">' + subtotal + '</td>' +                          //小計
         '</tr>';
 
         $("#trade_body").append(newdiv);
         $('button.remove').click(function(){
             $(this).parent().parent().remove();
         });
+        
     });
 
 });
