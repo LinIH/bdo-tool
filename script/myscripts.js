@@ -33,9 +33,9 @@ $('button#add-item').click(function(){
         var newdiv =
         '<div class="ui fluid card '+option_val+'">'+
             '<div style="margin:5px;">'+
-                option_val+
+                option_val + '  單價：$' + option_price +
                 '<button id="'+option_val+'" class="mini ui button remove" style="float:right;">刪</button>'+
-                '<div>'+ option_price +'</div>'
+                
             '</div>'+
         '</div>';
 

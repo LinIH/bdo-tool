@@ -1,8 +1,44 @@
 {
     "巴雷諾斯木材箱子":[
-        {"tradeitem_name":"巴雷諾斯木材箱子", "tradeitem_price":2519}
+        {"tradeitem_name":"巴雷諾斯木材箱子", "tradeitem_price":28710}
     ],
     "賽林迪亞木材箱子":[
-        {"tradeitem_name":"賽林迪亞木材箱子", "tradeitem_price":3555}
+        {"tradeitem_name":"賽林迪亞木材箱子", "tradeitem_price":32550}
+    ],
+    "卡爾佩恩木材箱子":[
+        {"tradeitem_name":"卡爾佩恩木材箱子", "tradeitem_price":50790}
+    ],
+    "梅迪亞木材箱子":[
+        {"tradeitem_name":"梅迪亞木材箱子", "tradeitem_price":40230}
+    ],
+    "白蠟樹原木箱子":[
+        {"tradeitem_name":"白蠟樹原木箱子", "tradeitem_price":1410}
+    ],
+    "楓樹原木箱子":[
+        {"tradeitem_name":"楓樹原木箱子", "tradeitem_price":1470}
+    ],
+    "松樹原木箱子":[
+        {"tradeitem_name":"松樹原木箱子", "tradeitem_price":1650}
+    ],
+    "白樺樹原木箱子":[
+        {"tradeitem_name":"白樺樹原木箱子", "tradeitem_price":1530}
+    ],
+    "冷杉樹原木箱子":[
+        {"tradeitem_name":"冷杉樹原木箱子", "tradeitem_price":1590}
+    ],
+    "杉樹原木箱子":[
+        {"tradeitem_name":"杉樹原木箱子", "tradeitem_price":1710}
+    ],
+    "扁柏樹原木箱子":[
+        {"tradeitem_name":"扁柏樹原木箱子", "tradeitem_price":1770}
+    ],
+    "洋槐樹原木箱子":[
+        {"tradeitem_name":"洋槐樹原木箱子", "tradeitem_price":1830}
+    ],
+    "椰子樹原木箱子":[
+        {"tradeitem_name":"椰子樹原木箱子", "tradeitem_price":1782}
+    ],
+    "接骨木原木箱子":[
+        {"tradeitem_name":"接骨木原木箱子", "tradeitem_price":1890}
     ]
 }
