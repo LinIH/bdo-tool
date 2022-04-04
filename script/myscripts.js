@@ -30,34 +30,35 @@ $('button#add-item').click(function(){
     var option_price;
     $.getJSON('script/data.json', function(data){
         option_price = data[option_val][0].tradeitem_price;
-        var newdiv =
+        /*var newdiv =
         '<div class="ui fluid card '+option_val+'">'+
             '<div style="margin:5px;">'+
                 option_val + '  單價：$' + option_price +
                 '<button id="'+option_val+'" class="mini ui button remove" style="float:right;">刪</button>'+
                 
             '</div>'+
-        '</div>';
+        '</div>';*/
+        var newdiv =
+        '<tr>'+
+            '<td>' + option_val + '</td>' +             //貿易品
+            '<td>' + option_price + '</td>' +           //單價
+            '<td><input type="number">' + '</td>' +                          //數量
+            '<td>' + '</td>' +                          //產地
+            '<td>' + '</td>' +                          //距離加成
+            '<td>' + '</td>' +                          //小計
+        '</tr>';
 
-        $("#content").append(newdiv);
+        $("#trade_body").append(newdiv);
         $('button.remove').click(function(){
             $(this).parent().parent().remove();
         });
     });
 
-    /*var getprice_id = setInterval(function(){
-        $.getJSON('script/data.json', function(data){
-            option_price = data[option_val][0].tradeitem_price;
-        });
-        if(option_price != null){
-            clearInterval(getprice_id);
-        }
-    }, 500);*/
 });
 
-$('button.remove').click(function(){
+/*$('button.remove').click(function(){
     $('button.remove').parent().parent().remove();
-});
+});*/
 
 $("button#calculate").click(function(){
 
