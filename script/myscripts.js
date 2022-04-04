@@ -1,7 +1,4 @@
 $(document).ready(function(){
-    $.ajaxSetup({
-        async: false;
-    });
     $('#select_tradeitem').empty();
     console.log('html');
     $.getJSON('script/data.json', function(data){
