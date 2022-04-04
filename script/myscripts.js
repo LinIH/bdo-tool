@@ -52,13 +52,15 @@ $('button#add-item').click(function(){
 
         $("#trade_body").append(newdiv);
         $('button.remove').click(function(){
-            $(this).parent().remove();
+            $(this).parent().parent().remove();
         });
         $('.trade_count').bind('input', 'input', function(){
             var trade_count = $(this).val();
             subtotal = option_price * $(this).val();
             //$(this).parent().trade_subtotal.html(subtotal);
-            console.log($(this).parent());
+            $(this).parent().parent().parent().trade_subtotal.html(subtotal);
+            console.log('this=' + $(this));
+            console.log($(this).parent().parent().parent().trade_subtotal);
         })
         
     });
