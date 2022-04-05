@@ -58,10 +58,10 @@ $('#greenbuff').click(function(){
 function calculate_subtotal(greenbuff){
     var sub_sum = 0;
     $('tr.tradeitem_row').each(function(){
-        var price = $(this).eq(2).text();
-        var count = $(this).eq(3).children().text();
+        var price = $(this).find('td:eq(2)').text();
+        var count = $(this).find('td:eq(3)').children().text();
         sub_sum = price * count * greenbuff;
-        $(this).eq(6).html(sub_sum);
+        $(this).find('td:eq(6)').html(sub_sum);
     });
 }
 
