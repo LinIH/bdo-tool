@@ -16,7 +16,7 @@ $('button#add-item').click(function(){
         option_price = data[option_val][0].tradeitem_price;
         var subtotal = option_price;
         var newdiv =
-        '<tr>'+
+        '<tr class="tradeitem_row">'+
             '<td><button class="mini ui button remove" style="width:100%">x</button>' +
             '<td>' + option_val + '</td>' +                                                       //貿易品
             '<td>' + option_price + '</td>' +                                                    //單價
@@ -41,6 +41,30 @@ $('button#add-item').click(function(){
 
 });
 
+$('#greenbuff').click(function(){
+    if($(this).prop('checked')){
+        $('tr.tradeitem_row').each(function(){
+            calculate_subtotal(1.5);
+        });
+    }
+    else{
+        $('tr.tradeitem_row').each(function(){
+            calculate_subtotal(1);
+        });
+    }
+    calculate_total();
+})
+
+function calculate_subtotal(greenbuff){
+    var sub_sum = 0;
+    $('tr.tradeitem_row').each(function(){
+        var price = $(this).eq(2).text();
+        var count = $(this).eq(3).children().text();
+        sub_sum = price * count * greenbuff;
+        $(this).eq(6).html(sub_sum);
+    });
+}
+
 function calculate_total(){
     var sum = 0;
     $('td.trade_subtotal').each(function(){
@@ -48,11 +72,3 @@ function calculate_total(){
     });
     $('#total').html(sum);
 }
-
-/*$('button.remove').click(function(){
-    $('button.remove').parent().parent().remove();
-});*/
-
-$("button#calculate").click(function(){
-
-});
