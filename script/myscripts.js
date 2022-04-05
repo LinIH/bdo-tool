@@ -58,6 +58,13 @@ $('button#add-item').click(function(){
             subtotal =  $(this).parent().prev().text() * $(this).val();
             $(this).parent().next().next().next().html(subtotal);
         })
+        $('.trade_subtotal').on('change', function(){
+            var sum = 0;
+            $(this).each(function(){
+                sum += parseFloat($(this).text());
+            });
+            $('#total').text(sum);
+        })
         
     });
 
