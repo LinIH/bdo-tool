@@ -55,9 +55,8 @@ $('button#add-item').click(function(){
             $(this).parent().parent().remove();
         });
         $('.trade_count').bind('input', 'input', function(){
-            var trade_count = $(this).val();
-            subtotal = option_price * $(this).val();
-            $($(this).parent().next().next().next()).html(subtotal);
+            subtotal =  $(this).parent().prev().text() * $(this).val();
+            $(this).parent().next().next().next().html(subtotal);
         })
         
     });
