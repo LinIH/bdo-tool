@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $('#select_tradeitem').empty();
-    console.log('html');
     $.getJSON('script/data.json', function(data){
         $.each(data, function(key, value){
             component_sentence = '<option>'+value[0].tradeitem_name+'</option>';
@@ -30,19 +29,25 @@ $('button#add-item').click(function(){
         $("#trade_body").append(newdiv);
         $('button.remove').click(function(){
             $(this).parent().parent().remove();
+            calculate_total();
         });
         $('.trade_count').bind('input', 'input', function(){
             subtotal =  $(this).parent().prev().text() * $(this).val();
-            var sum = 0;
             $(this).parent().next().next().next().html(subtotal);
-            $(this).parent().next().next().next().each(function(){
-                sum += parseFloat($(this).text());
-            })
-            $('#total').html(sum);
+            calculate_total();
         });
+        calculate_total();
     });
 
 });
+
+function calculate_total(){
+    var sum = 0;
+    $('td.trade_subtotal').each(function(){
+        sum += parseFloat($(this).text());
+    });
+    $('#total').html(sum);
+}
 
 /*$('button.remove').click(function(){
     $('button.remove').parent().parent().remove();
