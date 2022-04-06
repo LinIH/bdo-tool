@@ -27,7 +27,7 @@ $('button#add-item').click(function(){
         '</tr>';
 
         $("#trade_body").append(newdiv);
-        calculate_subtotal_by_greenbuff();
+        calculate_subtotal();
         $('button.remove').click(function(){
             $(this).parent().parent().remove();
             calculate_total();
@@ -42,30 +42,27 @@ $('button#add-item').click(function(){
 
 });
 
-$('#greenbuff').change(calculate_subtotal_by_greenbuff());
+$('#greenbuff').change(function(){
+    calculate_subtotal();
+});
 
-function calculate_subtotal_by_greenbuff(){
-    if($(this).prop('checked')){
-        $('tr.tradeitem_row').each(function(){
-            calculate_subtotal(1.5);
-        });
+function calculate_subtotal(){
+    var sub_sum = 0;
+    var greenbuff;
+    if($('#greenbuff').prop('checked')){
+        greenbuff = 1.5;
     }
     else{
-        $('tr.tradeitem_row').each(function(){
-            calculate_subtotal(1);
-        });
+        greenbuff = 1;
     }
-    calculate_total();
-}
-
-function calculate_subtotal(greenbuff){
-    var sub_sum = 0;
     $('tr.tradeitem_row').each(function(){
         var price = $(this).find('td:eq(2)').text();
         var count = $(this).find('td:eq(3) input').val();
         sub_sum = price * count * greenbuff;
         $(this).find('td:eq(6)').html(sub_sum);
     });
+    
+    calculate_total();
 }
 
 function calculate_total(){
