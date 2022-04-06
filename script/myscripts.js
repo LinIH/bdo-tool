@@ -33,9 +33,7 @@ $('button#add-item').click(function(){
             calculate_total();
         });
         $('.trade_count').bind('input', 'input', function(){
-            subtotal =  $(this).parent().prev().text() * $(this).val();
-            $(this).parent().next().next().next().html(subtotal);
-            calculate_total();
+            calculate_subtotal();
         });
         calculate_total();
     });
