@@ -42,9 +42,7 @@ $('button#add-item').click(function(){
 
 });
 
-$('#greenbuff').click(calculate_subtotal_by_greenbuff());
-
-function calculate_subtotal_by_greenbuff(){
+$('#greenbuff').change(function(){
     if($(this).prop('checked')){
         $('tr.tradeitem_row').each(function(){
             calculate_subtotal(1.5);
@@ -56,7 +54,7 @@ function calculate_subtotal_by_greenbuff(){
         });
     }
     calculate_total();
-}
+});
 
 function calculate_subtotal(greenbuff){
     var sub_sum = 0;
