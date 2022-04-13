@@ -1,3 +1,10 @@
+var origin_dropdown_html = '<select class="ui dropdown">' +
+                              '<option value="gelana">格拉納</option>' +
+                              '<option value="smartwood">智慧的古木</option>' +
+                              '<option value="valencia">瓦倫西亞</option>' +
+                           '</select>';
+
+
 $(document).ready(function(){
     $('#select_tradeitem').empty();
     $.getJSON('script/data.json', function(data){
@@ -21,7 +28,7 @@ $('button#add-item').click(function(){
             '<td>' + option_val + '</td>' +                                                       //貿易品
             '<td>' + option_price + '</td>' +                                                    //單價
             '<td><input type="number" style="width:100%" value="1" min="0" class="trade_count">' + '</td>' +                          //數量
-            '<td>' + '</td>' +                                                            //產地
+            '<td>' + origin_dropdown_html + '</td>' +                                                            //產地
             '<td>' + '</td>' +                                                           //距離加成
             '<td class="trade_subtotal">' + subtotal + '</td>' +                          //小計
         '</tr>';
@@ -68,5 +75,5 @@ function calculate_total(){
     $('td.trade_subtotal').each(function(){
         sum += parseFloat($(this).text());
     });
-    $('#total').html(sum);
+    $('#total').html(sum.toLocaleString());
 }
