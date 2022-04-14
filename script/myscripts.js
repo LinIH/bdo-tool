@@ -8,10 +8,16 @@ var origin_dropdown_html = '<select class="ui dropdown">' +
 $(document).ready(function(){
     $('#select_tradeitem').empty();
     $.getJSON('script/data.json', function(data){
-        $.each(data, function(key, value){
+        /*$.each(data, function(key, value){
             component_sentence = '<option>'+value["tradeitems"].tradeitem_name+'</option>';
             $('#select_tradeitem').append(component_sentence);
-          });
+          });*/
+        //var tradeitems = data["tradeitems"];
+        $["tradeitems"].each(function(key, value){
+            console.log('key=' + key + ',value=' + value);
+            component_sentence = '<option>' + tradeitem_price + '</option>';
+            $('#select_tradeitem').append(component_sentence);
+        })
     })
 });
 
