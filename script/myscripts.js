@@ -9,7 +9,7 @@ $(document).ready(function(){
     $('#select_tradeitem').empty();
     $.getJSON('script/data.json', function(data){
         $.each(data, function(key, value){
-            component_sentence = '<option>'+value[0].tradeitem_name+'</option>';
+            component_sentence = '<option>'+value["tradeitems"].tradeitem_name+'</option>';
             $('#select_tradeitem').append(component_sentence);
           });
     })
@@ -20,7 +20,10 @@ $('button#add-item').click(function(){
     var option_val = option.val();
     var option_price;
     $.getJSON('script/data.json', function(data){
-        option_price = data[option_val][0].tradeitem_price;
+        $.each(data, function(key, val){
+            if(option_val == data["tradeitems"].tradeitem_name) option_price = data["tradeitems"].tradeitem_price;
+        })
+        console.log('option_price=' + option_price);
         var subtotal = option_price;
         var newdiv =
         '<tr class="tradeitem_row">'+
