@@ -9,11 +9,10 @@ $(document).ready(function(){
     $('#select_tradeitem').empty();
     $.getJSON('script/tradeitems.json', function(data){
         $.each(data, function(key, value){
-            component_sentence = '<option>'+value[0].tradeitem_name+'</option>';
+            component_sentence = '<option>'+key+'</option>';
             $('#select_tradeitem').append(component_sentence);
           });
-        
-    })
+    });
 });
 
 $('button#add-item').click(function(){
@@ -21,7 +20,7 @@ $('button#add-item').click(function(){
     var option_val = option.val();
     var option_price;
     $.getJSON('script/tradeitems.json', function(data){
-        option_price = data[0].tradeitem_price;
+        option_price = data[option_val][0].tradeitem_price;
         console.log('option_price=' + option_price);
         var subtotal = option_price;
         var newdiv =
