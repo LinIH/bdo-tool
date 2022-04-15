@@ -1,10 +1,18 @@
+var origin_dropdown_html = '<select class="ui dropdown">' +
+                              '<option value="gelana">格拉納</option>' +
+                              '<option value="smartwood">智慧的古木</option>' +
+                              '<option value="valencia">瓦倫西亞</option>' +
+                           '</select>';
+
+
 $(document).ready(function(){
     $('#select_tradeitem').empty();
-    $.getJSON('script/data.json', function(data){
+    $.getJSON('script/tradeitems.json', function(data){
         $.each(data, function(key, value){
             component_sentence = '<option>'+value[0].tradeitem_name+'</option>';
             $('#select_tradeitem').append(component_sentence);
           });
+        
     })
 });
 
@@ -12,8 +20,9 @@ $('button#add-item').click(function(){
     var option = $('#select_tradeitem option:selected');
     var option_val = option.val();
     var option_price;
-    $.getJSON('script/data.json', function(data){
-        option_price = data[option_val][0].tradeitem_price;
+    $.getJSON('script/tradeitems.json', function(data){
+        option_price = data[0].tradeitem_price;
+        console.log('option_price=' + option_price);
         var subtotal = option_price;
         var newdiv =
         '<tr class="tradeitem_row">'+
@@ -21,7 +30,7 @@ $('button#add-item').click(function(){
             '<td>' + option_val + '</td>' +                                                       //貿易品
             '<td>' + option_price + '</td>' +                                                    //單價
             '<td><input type="number" style="width:100%" value="1" min="0" class="trade_count">' + '</td>' +                          //數量
-            '<td>' + '</td>' +                                                            //產地
+            '<td>' + origin_dropdown_html + '</td>' +                                                            //產地
             '<td>' + '</td>' +                                                           //距離加成
             '<td class="trade_subtotal">' + subtotal + '</td>' +                          //小計
         '</tr>';
@@ -68,5 +77,5 @@ function calculate_total(){
     $('td.trade_subtotal').each(function(){
         sum += parseFloat($(this).text());
     });
-    $('#total').html(sum);
+    $('#total').html(sum.toLocaleString());
 }
