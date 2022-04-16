@@ -46,6 +46,12 @@ $('button#add-item').click(function(){
             $('.trade_count').bind('input', 'input', function(){
                 calculate_subtotal();
             });
+            $('#select_origin').change(function(){
+                console.log('a');
+                var op_origin = $(this).val();
+                $(this).parent().find('td:eq(5)').html(op_origin);
+                calculate_subtotal();
+            });
             calculate_total();
         });
     });
@@ -53,13 +59,6 @@ $('button#add-item').click(function(){
 });
 
 $('#greenbuff').change(function(){
-    calculate_subtotal();
-});
-
-$('#select_origin').change(function(){
-    console.log('a');
-    var op_origin = $(this).val();
-    $(this).parent().find('td:eq(5)').html(op_origin);
     calculate_subtotal();
 });
 
