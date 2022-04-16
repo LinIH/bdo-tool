@@ -21,12 +21,10 @@ $('button#add-item').click(function(){
     var op_tradeitems_val = op_tradeitems.val();
     var op_tradeitems_price;
     $.getJSON('script/tradeitems.json', function(data_tradeitems){
-        op_tradeitems_price = data_tradeitems[op_tradeitems_val].tradeitem_price;
-        //console.log('op_tradeitems_price=' + op_tradeitems_price);
+        op_tradeitems_price = data_tradeitems[op_tradeitems_val][0].tradeitem_price;
         $.getJSON('script/distance.json', function(data_distance){
-            var op_sellto = $('#select_sellto option:selected');
-            console.log('op=' + op_sellto);
-            var op_distance = data_distance['grana'].op_sellto;
+            var op_sellto = $('#select_sellto option:selected').val();
+            var op_distance = data_distance['grana'][op_sellto];
             var subtotal = op_tradeitems_price;
             var newdiv =
             '<tr class="tradeitem_row">'+
