@@ -49,8 +49,13 @@ $('button#add-item').click(function(){
             $('#select_origin').change(function(){
                 console.log('a');
                 var op_origin = $(this).val();
-                $(this).parent().next().html(op_origin);
-                calculate_subtotal();
+                var op_sellto = $('#select_sellto option:selected').val();
+                var old_distance = $(this).parent().next();
+                $.getJSON('script/distance.json', function(data){
+                    var new_distance = data[op_origin][op_sellto];
+                    old_distance.html(new_distance);
+                    calculate_subtotal();
+                });
             });
             calculate_total();
         });
