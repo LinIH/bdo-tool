@@ -71,7 +71,7 @@ function calculate_subtotal(){
         var price = $(this).find('td:eq(2)').text();
         var count = $(this).find('td:eq(3) input').val();
         var distance = $(this).find('td:eq(4)').text();
-        sub_sum = price * count * * distance *greenbuff;
+        sub_sum = price * count *  distance *greenbuff;
         $(this).find('td:eq(6)').html(sub_sum);
     });
     
