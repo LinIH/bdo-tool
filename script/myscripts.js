@@ -59,7 +59,7 @@ $('#greenbuff').change(function(){
 $('#select_origin').change(function(){
     console.log('a');
     var op_origin = $(this).val();
-    $(this).parent().find.('td:eq(5)').html(op_origin);
+    $(this).parent().find('td:eq(5)').html(op_origin);
     calculate_subtotal();
 });
 
