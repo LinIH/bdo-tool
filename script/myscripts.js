@@ -1,9 +1,10 @@
+/**貿易品產地 */
 var origin_dropdown_html = '<select class="ui dropdown">' +
-                              '<option value="gelana">格拉納</option>' +
-                              '<option value="smartwood">智慧的古木</option>' +
-                              '<option value="valencia">瓦倫西亞</option>' +
+                              '<option value="grana">格拉納</option>' +
+                              '<option value="trent">智慧的古木</option>' +
+                              '<option value="epheria">艾裴利亞港</option>' +
+                              '<option value="calpheon">卡爾佩恩</option>' +
                            '</select>';
-
 
 $(document).ready(function(){
     $('#select_tradeitem').empty();
@@ -20,7 +21,7 @@ $('button#add-item').click(function(){
     var option_val = option.val();
     var option_price;
     $.getJSON('script/tradeitems.json', function(data){
-        option_price = data[option_val][0].tradeitem_price;
+        option_price = data[option_val].tradeitem_price;
         console.log('option_price=' + option_price);
         var subtotal = option_price;
         var newdiv =
