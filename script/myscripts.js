@@ -17,34 +17,39 @@ $(document).ready(function(){
 });
 
 $('button#add-item').click(function(){
-    var option = $('#select_tradeitem option:selected');
-    var option_val = option.val();
-    var option_price;
-    $.getJSON('script/tradeitems.json', function(data){
-        option_price = data[option_val].tradeitem_price;
-        console.log('option_price=' + option_price);
-        var subtotal = option_price;
-        var newdiv =
-        '<tr class="tradeitem_row">'+
-            '<td><button class="mini ui button remove" style="width:100%">x</button>' +
-            '<td>' + option_val + '</td>' +                                                       //貿易品
-            '<td>' + option_price + '</td>' +                                                    //單價
-            '<td><input type="number" style="width:100%" value="1" min="0" class="trade_count">' + '</td>' +                          //數量
-            '<td>' + origin_dropdown_html + '</td>' +                                                            //產地
-            '<td>' + '</td>' +                                                           //距離加成
-            '<td class="trade_subtotal">' + subtotal + '</td>' +                          //小計
-        '</tr>';
+    var op_tradeitems = $('#select_tradeitem option:selected');
+    var op_tradeitems_val = op_tradeitems.val();
+    var op_tradeitems_price;
+    $.getJSON('script/tradeitems.json', function(data_tradeitems){
+        op_tradeitems_price = data_tradeitems[op_tradeitems_val].tradeitem_price;
+        //console.log('op_tradeitems_price=' + op_tradeitems_price);
+        $.getJSON('script/distance.json', function(data_distance){
+            var op_sellto = $('#select_sellto option:selected');
+            console.log('op=' + op_sellto);
+            var op_distance = data_distance['grana'].op_sellto;
+            var subtotal = op_tradeitems_price;
+            var newdiv =
+            '<tr class="tradeitem_row">'+
+                '<td><button class="mini ui button remove" style="width:100%">x</button>' +
+                '<td>' + op_tradeitems_val + '</td>' +                                                       //貿易品
+                '<td>' + op_tradeitems_price + '</td>' +                                                    //單價
+                '<td><input type="number" style="width:100%" value="1" min="0" class="trade_count">' + '</td>' +                          //數量
+                '<td>' + origin_dropdown_html + '</td>' +                                                            //產地
+                '<td>' + op_distance + '</td>' +                                                           //距離加成
+                '<td class="trade_subtotal">' + subtotal + '</td>' +                          //小計
+            '</tr>';
 
-        $("#trade_body").append(newdiv);
-        calculate_subtotal();
-        $('button.remove').click(function(){
-            $(this).parent().parent().remove();
+            $("#trade_body").append(newdiv);
+            calculate_subtotal();
+            $('button.remove').click(function(){
+                $(this).parent().parent().remove();
+                calculate_total();
+            });
+            $('.trade_count').bind('input', 'input', function(){
+                calculate_subtotal();
+            });
             calculate_total();
         });
-        $('.trade_count').bind('input', 'input', function(){
-            calculate_subtotal();
-        });
-        calculate_total();
     });
 
 });
@@ -65,7 +70,8 @@ function calculate_subtotal(){
     $('tr.tradeitem_row').each(function(){
         var price = $(this).find('td:eq(2)').text();
         var count = $(this).find('td:eq(3) input').val();
-        sub_sum = price * count * greenbuff;
+        var distance = $(this).find('td:eq(4)').text();
+        sub_sum = price * count * * distance *greenbuff;
         $(this).find('td:eq(6)').html(sub_sum);
     });
     
