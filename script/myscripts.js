@@ -47,7 +47,6 @@ $('button#add-item').click(function(){
                 calculate_subtotal();
             });
             $('#select_origin').change(function(){
-                console.log('a');
                 var op_origin = $(this).val();
                 var op_sellto = $('#select_sellto option:selected').val();
                 var old_distance = $(this).parent().next();
@@ -64,6 +63,10 @@ $('button#add-item').click(function(){
 });
 
 $('#greenbuff').change(function(){
+    calculate_subtotal();
+});
+
+$('#select_sellto').change(function(){
     calculate_subtotal();
 });
 
