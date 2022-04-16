@@ -1,5 +1,5 @@
 /**貿易品產地 */
-var origin_dropdown_html = '<select class="ui dropdown">' +
+var origin_dropdown_html = '<select id="select_origin" class="ui dropdown">' +
                               '<option value="grana">格拉納</option>' +
                               '<option value="trent">智慧的古木</option>' +
                               '<option value="epheria">艾裴利亞港</option>' +
@@ -53,6 +53,13 @@ $('button#add-item').click(function(){
 });
 
 $('#greenbuff').change(function(){
+    calculate_subtotal();
+});
+
+$('#select_origin').change(function(){
+    console.log('a');
+    var op_origin = $(this).val();
+    $(this).parent().find.('td:eq(5)').html(op_origin);
     calculate_subtotal();
 });
 
