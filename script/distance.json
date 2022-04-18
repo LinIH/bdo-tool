@@ -2,25 +2,25 @@
     "grana":
     {
         "ancado": 1.94,
-        "valencia": 2.13,
+        "valencia": 2.1385,
         "arehaza": 2.20
     },
-    "trent":
+    "ancientwood":
     {
         "ancado": 1.94,
-        "valencia": 2.13,
+        "valencia": 2.11,
         "arehaza": 2.20
     },
     "epheria":
     {
         "ancado": 1.86,
-        "valencia": 1.94,
+        "valencia": 1.9428,
         "arehaza": 2.03
     },
     "calpheon":
     {
         "ancado": 1.94,
-        "valencia": 2.13,
+        "valencia": 1.8351,
         "arehaza": 2.20
     }
 }

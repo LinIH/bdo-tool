@@ -1,7 +1,7 @@
 /**貿易品產地 */
 var origin_dropdown_html = '<select id="select_origin" class="ui dropdown">' +
                               '<option value="grana">格拉納</option>' +
-                              '<option value="trent">智慧的古木</option>' +
+                              '<option value="ancientwood">智慧的古木</option>' +
                               '<option value="epheria">艾裴利亞港</option>' +
                               '<option value="calpheon">卡爾佩恩</option>' +
                            '</select>';
